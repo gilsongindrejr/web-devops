@@ -1,5 +1,7 @@
 image: python
 
+on: push
+
 stages:
   - build
   - test
