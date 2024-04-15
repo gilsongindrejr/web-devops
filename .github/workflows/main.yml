@@ -2,22 +2,18 @@ image: python
 
 on: push
 
-stages:
-  - build
-  - test
-  - deploy
+jobs:
+  build-job:
+    stage: build
+    script:
+      - python3 -V
 
-build-job:
-  stage: build
-  script:
-    - python3 -V
+  test-job:
+    stage: test
+    script:
+      - python3 manage.py runserver
 
-test-count:
-  stage: test
-  script:
-    - python3 manage.py runserver
-
-deploy-job:
-  stage: deploy
-  script:
-    - echo "Terminou"
+  deploy-job:
+    stage: deploy
+    script:
+      - echo "Terminou"
